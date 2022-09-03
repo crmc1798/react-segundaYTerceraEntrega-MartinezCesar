@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "title": "Trustmaster t150",
+        "price": 5000,
+        "img": "https://www.discoazul.com/uploads/media/images/t150rs-ps.jpg",
+        "stock": 25
+    },
+    {
+        "id": "2",
+        "title": "Trustmaster TMX",
+        "price": 5000,
+        "img": "https://c1.neweggimages.com/ProductImage/26-606-035-S03.jpg",
+        "stock": 25
+    },
+    {
+        "id": "3",
+        "title": "Trustmaster t1300",
+        "price": 10000,
+        "img": "https://m.media-amazon.com/images/I/81eiBUipVVL.jpg",
+        "stock": 25
+    },
+    {
+        "id": "4",
+        "title": "logitech g29",
+        "price": 5000,
+        "img": "https://tiendasarcadia.com/wp-content/uploads/nc/p/1/7/1/6/7/17167.jpg",
+        "stock": 25
+    },
+    {
+        "id": "5",
+        "title": "logitech g920",
+        "price": 5000,
+        "img": "https://m.media-amazon.com/images/I/713hqmmfGSL._AC_SY450_.jpg",
+        "stock": 25
+    } 
+]
