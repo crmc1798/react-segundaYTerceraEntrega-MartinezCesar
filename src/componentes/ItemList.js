@@ -6,7 +6,7 @@ const ItemList = ({productos}) => {
             {productos.length ? (
                 productos.map((producto) => <Item key={producto.id} {...producto}/>)
             ):(
-            <h2>Cargando...</h2>
+            <h2 className="container">Cargando...</h2>
             )}
         </div>
     )
