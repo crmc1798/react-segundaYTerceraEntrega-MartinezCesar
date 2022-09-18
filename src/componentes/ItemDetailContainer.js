@@ -23,7 +23,6 @@ const ItemDetailContainer = () => {
         useEffect(()=>{
             getProductos(productosJson[id], 2000).then((res)=>{
                 setproductos(res);
-                console.log(res);
             })
             .catch((err)=>console.log(err, ": Error no hay productos"))
         },[id]);

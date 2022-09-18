@@ -1,12 +1,13 @@
+import React from 'react';
 import { useState } from "react";
 
-let stock=25;
 
-const ItemCount = () => {
-    const [numero, setnumero] = useState(0);
+
+const ItemCount = ({stock, onAdd}) => {
+    const [numero, setnumero] = useState(1);
 
     const resta = () => {
-        if(numero!== 0){
+        if(numero!== 1){
             setnumero(numero-1);
             }
     }
@@ -16,18 +17,16 @@ const ItemCount = () => {
         }
     }
     return (
-        
         <div className="d-flex flex-column justify-content-center align-items-center">
             <div className="m-2">
                 <button onClick={resta} type="button" class="btn btn-outline-dark mx-4">-</button>
                 <strong>{numero}</strong>
                 <button onClick={suma} type="button" class="btn btn-outline-dark mx-4">+</button>
             </div>
-
             <div className="m-2">
-            <button type="button" class="btn btn-outline-dark mx-4">Agregar al carrito</button>
+            <button onClick={()=>onAdd(numero)} type="button" class="btn btn-outline-dark mx-4">Agregar al carrito</button>
             </div>
         </div>
-    )
+    );
   }
   export default ItemCount

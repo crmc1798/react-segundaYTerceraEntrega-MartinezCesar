@@ -19,13 +19,12 @@ const ItemDetailContainer2 = (param) => {
         });
         useEffect(()=>{
             getProductos((productosJson.filter(function(item) {
-                console.log(item[param2]);
                 return item[param2] === param.params[0];
             })), 2000).then((res)=>{
                 setproductos(res);
             })
             .catch((err)=>console.log(err, ": Error no hay productos"))
-        },[param]);
+        },[param2,param.params]);
 
     return (
             <ItemList productos={productos}/>

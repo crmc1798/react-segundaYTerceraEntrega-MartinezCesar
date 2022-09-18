@@ -7,10 +7,13 @@ import ItemDetailContainer from './componentes/ItemDetailContainer.js';
 import ItemDetailContainer2 from './componentes/ItemDetailContainer2.js';
 import NavBar from './componentes/Navbar.js';
 import Footers from './componentes/Footers.js';
+import { CartProvider } from './context/cartContext';
+import { CartContainer } from './componentes/CartContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>
+  <CartProvider>
   <BrowserRouter>
   <NavBar/> 
     <Routes>
@@ -20,9 +23,11 @@ root.render(
       <Route path='/category/Xbox' element={<ItemDetailContainer2 params={["Xbox", "platform"]}/>}/>
       <Route path='/category/Ps' element={<ItemDetailContainer2 params={["PS", "platform"]}/>}/>
       <Route path='/detail/item/:id' element={<ItemDetailContainer/>}/>
+      <Route path="/cart" element={<CartContainer/>}/>
     </Routes>
     <Footers/>
     </BrowserRouter>
+    </CartProvider>
   //</React.StrictMode>
 );
 
