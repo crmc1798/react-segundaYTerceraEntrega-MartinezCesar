@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import {doc, getFirestore, updateDoc, getDoc,} from "firebase/firestore";
 
 export const  CartContext = createContext ();
 
@@ -34,11 +35,32 @@ export const CartProvider = ({children})=>{
     const clearProductCartList=()=>{
         setProductCartList([])
     }
+    
 
     const getTotalProducts = ()=>{
         const totalProducts = productCartList.reduce((acc,item)=>acc + item.quantity,0);
+        console.log(productCartList.reduce((acc,item)=>acc + item.quantity,0))
         return totalProducts;
     }
+
+    const updateOrder = (totalProducts) => {
+        const db = getFirestore();
+
+        const orderDoc = doc(db, "total", "1");
+        updateDoc(orderDoc, {total: totalProducts});
+    }
+
+    useEffect(() => {
+        const db = getFirestore();
+        let data;
+        const itemRef = doc(db, "total", "1");
+        getDoc(itemRef).then((snapshot) => {
+            if (snapshot.exists()){
+                data=snapshot.data();
+                console.log(data);
+            }
+        })
+    })
 
     return(
         <CartContext.Provider value={{productCartList,addProduct, removeProduct, clearProductCartList, isInCart, getTotalProducts}}>

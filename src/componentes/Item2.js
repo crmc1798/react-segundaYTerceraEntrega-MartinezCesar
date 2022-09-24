@@ -7,12 +7,12 @@ import {Link} from 'react-router-dom';
 
 const ulStyle = { width: '25rem' }
 
-const Item2 = ({ title, img, price, stock, description }) => {
-let nuevo = {title, img, price};
-console.log(nuevo)
+const Item2 = ({ title, img, price, stock, description, id }) => {
+let nuevo = {title, img, price, stock, description, id};
+//console.log(nuevo)
 const {addProduct} = useContext(CartContext);
     const [quantity, setQuantity] = useState(0);
-    console.log(quantity);
+    //console.log(quantity);
     const onAdd = (count)=>{
         addProduct(nuevo,count);
         setQuantity(count);

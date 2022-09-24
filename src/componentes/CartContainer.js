@@ -5,6 +5,7 @@ import { CartItem } from './CartItem';
 
 export const CartContainer = () => {
   const {productCartList, clearProductCartList} = useContext(CartContext);
+  console.log(productCartList);
 
   return (
     <div className='container'>
@@ -15,10 +16,13 @@ export const CartContainer = () => {
             {
               productCartList.map(producto=>(
                 <CartItem key={producto.id} producto={producto}/>
+                
               ))
+              
             }
             <hr/>
             <button className="btn btn-outline-dark mx-4" onClick={clearProductCartList}>Vaciar el carrito</button>
+            <button className="btn btn-outline-dark mx-4" >Comprar</button>
           </>
           :
           <p>No has agregado productos</p>
