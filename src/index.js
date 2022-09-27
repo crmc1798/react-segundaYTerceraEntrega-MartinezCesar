@@ -16,14 +16,15 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  projectId: process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyBH87hOq23w8WWqMJ1Eb2xOJwW2CH8o2Wc",
+    authDomain: "simstore-40cf9.firebaseapp.com",
+    projectId: "simstore-40cf9",
+    storageBucket: "simstore-40cf9.appspot.com",
+    messagingSenderId: "886482896143",
+    appId: "1:886482896143:web:7d8c91a64ec64757472a7a"
+  };
+
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
