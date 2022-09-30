@@ -12,7 +12,9 @@ export const CartItem = ({producto}) => {
                 <p className="card-text">precio unitario: ${producto.price}</p>
                 <p className="card-text">cantidad: {producto.quantity}</p>
                 <p className="card-text">Precio total: ${producto.totalPrice}</p>
-                <button className="btn btn-outline-dark mx-4" onClick={()=>removeProduct(producto.id)}>Eliminar producto</button>
+                <div className='d-flex justify-content-center'>
+                <button className="btn btn-outline-dark" onClick={()=>removeProduct(producto.id)}>Eliminar producto</button>
+                </div>
             </div>
         </div>
     )

@@ -37,7 +37,7 @@ root.render(
   <BrowserRouter>
   <NavBar/> 
     <Routes>
-      <Route path='/home' element={<App />}/>
+      <Route path='/' element={<App />}/>
       <Route path='/category/Trustmaster' element={<ItemDetailContainer2 params={["Trustmaster" , "brand"]}/>}/>
       <Route path='/category/Logitech' element={<ItemDetailContainer2 params={["Logitech", "brand"]}/>}/>
       <Route path='/category/Xbox' element={<ItemDetailContainer2 params={["Xbox", "platform"]}/>}/>
