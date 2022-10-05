@@ -7,9 +7,9 @@ const Item = ({ id, title, img, price, stock }) => {
     let url = id - 1;
     return (
         <div className="card container m2" style={ulStyle}>
-            <a href={'/detail/item/' + url}>
+            <Link to={'/detail/item/' + url}>
                 <img src={img} className="card-img-top  " alt="..." />
-            </a>
+                </Link>
 
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
