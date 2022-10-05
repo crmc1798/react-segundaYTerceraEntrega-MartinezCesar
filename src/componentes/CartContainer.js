@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
 
 
+
 export const CartContainer = () => {
   const { productCartList, clearProductCartList } = useContext(CartContext);
   //console.log("hola");
@@ -20,7 +21,7 @@ export const CartContainer = () => {
   const [idOrder, setIdOrder] = useState("");
   const db = getFirestore();
 
-  const form = document.getElementById('my_form');
+
 
   const sendOrder = (e) => {
     e.preventDefault();
@@ -44,8 +45,9 @@ export const CartContainer = () => {
       const orderDoc = doc(db, "items", arregloId[i]);
       updateDoc(orderDoc, { stock: arregloStock[i] });
     }
-    form.reset();
+    
     alert("Orden enviada");
+    e.target.reset();
 
 
   }
@@ -79,14 +81,14 @@ export const CartContainer = () => {
 
                 <div className="mb-3">
                   <label htmlFor="Telefono" className="form-label">Telefono</label>
-                  <input type="text" className="form-control" id="Telefono" />
+                  <input type="number" className="form-control" id="Telefono" />
                 </div>
 
                 <div className="mb-3">
                   <label htmlFor="Correo" className="form-label">Correo</label>
                   <input type="email" className="form-control" id="Correo" />
                 </div>
-                <button className="btn btn-outline-dark">Enviar orden</button>
+                <button type="submit" className="btn btn-outline-dark">Enviar orden</button>
               </form>
             </>
             :
