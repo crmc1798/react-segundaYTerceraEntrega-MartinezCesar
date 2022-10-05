@@ -20,6 +20,8 @@ const ItemContainer = () => {
         });
     }
 
+    console.log(productos.id)
+
     //console.log(ids);
 
     // const getProductos = (data, time) =>

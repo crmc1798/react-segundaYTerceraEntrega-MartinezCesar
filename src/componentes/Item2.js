@@ -22,8 +22,8 @@ const {addProduct, productCartList} = useContext(CartContext);
     for (let i = 0; i < productCartList.length; i++) {
         if(productCartList[i].title===title){
             stock=productCartList[i].stock-productCartList[i].quantity;
-           console.log(stock)
-           console.log(productCartList[i])
+           //console.log(stock)
+           //console.log(productCartList[i])
         }
 
     }
@@ -45,7 +45,7 @@ const {addProduct, productCartList} = useContext(CartContext);
                     {
                         (stock>0)  &&
                         
-                        <ItemCount stock={stock} onAdd={onAdd}/>
+                        <ItemCount stock={stock} key={id} onAdd={onAdd}/>
                     }
                 {
                     quantity>0 &&

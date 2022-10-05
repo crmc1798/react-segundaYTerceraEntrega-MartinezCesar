@@ -4,6 +4,7 @@ import { CartContext } from '../context/cartContext';
 import { CartItem } from './CartItem';
 import { Link } from 'react-router-dom';
 import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
+import validator from 'validator'
 
 
 
@@ -21,10 +22,11 @@ export const CartContainer = () => {
   const [idOrder, setIdOrder] = useState("");
   const db = getFirestore();
 
-
-
   const sendOrder = (e) => {
     e.preventDefault();
+    
+    console.log(validator.isEmail(e.target[2].value))
+    if((e.target[0].value.length>0)&&(e.target[1].value.length>=10)&&(validator.isEmail(e.target[2].value))){
     const order = {
       buyer: {
         name: e.target[0].value,
@@ -49,7 +51,10 @@ export const CartContainer = () => {
     alert("Orden enviada");
     clearProductCartList();
     e.target.reset();
-
+  }
+  else{
+    alert("Favor de llenar de forma correcta el Formulario. Gracias");
+  }
 
   }
 
