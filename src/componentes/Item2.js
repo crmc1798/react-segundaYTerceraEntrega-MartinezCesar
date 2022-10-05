@@ -10,14 +10,28 @@ const ulStyle = { width: '25rem' }
 const Item2 = ({ title, img, price, stock, description, id }) => {
 let nuevo = {title, img, price, stock, description, id};
 //console.log(nuevo)
-const {addProduct} = useContext(CartContext);
+const {addProduct, productCartList} = useContext(CartContext);
     const [quantity, setQuantity] = useState(0);
     //console.log(quantity);
+
     const onAdd = (count)=>{
         addProduct(nuevo,count);
         setQuantity(count);
     }
 
+    for (let i = 0; i < productCartList.length; i++) {
+        if(productCartList[i].title===title){
+            stock=productCartList[i].stock-productCartList[i].quantity;
+           console.log(stock)
+           console.log(productCartList[i])
+        }
+
+    }
+
+    
+    
+
+    //console.log(nuevo)
     return (
         <div className="card container" style={ulStyle}>
             <img src={img} className="card-img-top " alt="..." />
@@ -26,7 +40,13 @@ const {addProduct} = useContext(CartContext);
                 <p className="card-text">{description}</p>
                 <p className="card-text">${price} pesos</p>
                 <p className="card-text">Disponibles={stock} unidades</p>
-                <div className="d-flex justify-content-center align-items-center"><ItemCount stock={stock} onAdd={onAdd}/>
+                
+                <div className="d-flex justify-content-center align-items-center">
+                    {
+                        (stock>0)  &&
+                        
+                        <ItemCount stock={stock} onAdd={onAdd}/>
+                    }
                 {
                     quantity>0 &&
                     <Link to="/cart">

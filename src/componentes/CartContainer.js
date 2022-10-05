@@ -47,6 +47,7 @@ export const CartContainer = () => {
     }
     
     alert("Orden enviada");
+    clearProductCartList();
     e.target.reset();
 
 
